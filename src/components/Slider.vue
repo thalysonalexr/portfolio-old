@@ -28,7 +28,7 @@ export default {
             return
           }
           if (this.routes[parseInt(index) - 1].path === this.firstPath) {
-            this.$router.push('/')
+            this.$router.push(this.firstPath)
             $('#btn-left').prop('disabled', true)
             return
           }
@@ -51,7 +51,7 @@ export default {
             return
           }
           if (this.routes[parseInt(index) + 1].path === this.lastPath) {
-            this.$router.push('/informatica')
+            this.$router.push(this.lastPath)
             $('#btn-right').prop('disabled', true)
             return
           }
@@ -61,20 +61,30 @@ export default {
       }
 
       this.$router.push(next)
+    },
+    verify (current) {
+      if (current === this.firstPath) {
+        $('#btn-left').prop('disabled', true)
+        $('#btn-right').prop('disabled', false)
+      } else if (current === this.lastPath) {
+        $('#btn-right').prop('disabled', true)
+        $('#btn-left').prop('disabled', false)
+      } else {
+        $('#btn-left').prop('disabled', false)
+        $('#btn-right').prop('disabled', false)
+      }
     }
   },
   mounted () {
     this.$nextTick(function () {
       this.routes = this.$router.options.routes
-
-      let current = this.$router.currentRoute.fullPath
-
-      if (current === this.firstPath) {
-        $('#btn-left').prop('disabled', true)
-      } else if (current === this.lastPath) {
-        $('#btn-right').prop('disabled', true)
-      }
+      this.verify(this.$router.currentRoute.fullPath)
     })
+  },
+  watch: {
+    $route (to, from) {
+      this.verify(to.fullPath)
+    }
   }
 }
 </script>
