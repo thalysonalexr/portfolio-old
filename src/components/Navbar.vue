@@ -3,7 +3,7 @@
     <div class="collapse" id="navbarToggleExternalContent">
       <div class="bg-dark p-4 background-img">
         <h4 class="text-white">Navegue entre tópicos</h4>
-        <span class="text-muted">Deseja ver mais? <strong><router-link :to="{ path: '/contato' }">contate-me</router-link></strong></span>
+        <span class="text-muted">Deseja ver mais? <strong><router-link class="go-link" :to="{ path: '/contato' }">contate-me</router-link></strong></span>
         <ul id="topics" class="nav navbar-nav">
           <li><i class="fas fa-link"></i><router-link class="go-link" :to="{ path: '/' }">Biografia</router-link></li>
           <li><i class="fas fa-link"></i><router-link class="go-link" :to="{ path: '/dados' }">Dados pessoais</router-link></li>

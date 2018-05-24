@@ -28,7 +28,7 @@
         </tr>
       </tbody>
     </table>
-    <figure id="tellme">
+    <figure id="callme">
       <img src="../../assets/img/callme.gif" alt="Tell me please!">
     </figure>
   </section>
@@ -54,11 +54,11 @@ section#contact{
   width: 70%;
 }
 
-figure#tellme{
+figure#callme{
   text-align: center;
 }
 
-figure#tellme img{
+figure#callme img{
   margin-top: 3%;
   width: 300px;
 }
